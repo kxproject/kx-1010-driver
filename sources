@@ -1,0 +1,60 @@
+# 1010 PCI/PCIe Audio Driver
+# Copyright (c) Eugene Gavrilov, 2002-2016
+#
+#   This program is free software; you can redistribute it and/or modify
+#   it under the terms of the GNU General Public License as published by
+#   the Free Software Foundation; either version 2 of the License, or
+#   (at your option) any later version.
+#
+#   This program is distributed in the hope that it will be useful,
+#   but WITHOUT ANY WARRANTY; without even the implied warranty of
+#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#   GNU General Public License for more details.
+#
+#   You should have received a copy of the GNU General Public License
+#   along with this program; if not, write to the Free Software
+#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+
+TARGETNAME=1010pci
+TARGETTYPE=DRIVER
+
+MSC_WARNING_LEVEL=/W3 /WX
+PRECOMPILED_CXX=1
+PRECOMPILED_INCLUDE=common.h
+
+# enable Win7-specific WaveRT stuff in portcls.h / ksmedia.h
+_NT_TARGET_VERSION=$(_NT_TARGET_VERSION_WIN7)
+
+TARGETLIBS=$(SDK_LIB_PATH)\libcntpr.lib\
+    $(SDK_LIB_PATH)\ksguid.lib \
+    $(SDK_LIB_PATH)\ks.lib \
+    $(SDK_LIB_PATH)\hal.lib \
+    $(SDK_LIB_PATH)\ntstrsafe.lib \
+    $(SDK_LIB_PATH)\ntoskrnl.lib \
+    $(SDK_LIB_PATH)\portcls.lib \
+    $(SDK_LIB_PATH)\wdmsec.lib \
+    $(SDK_LIB_PATH)\Rtlver.lib \
+    $(SDK_LIB_PATH)\Wdmsec.lib
+
+SOURCES=    driver.rc   	\
+            main.cpp		\
+            debug.cpp		\
+            pcdevice.cpp 	\
+            pcdriver.cpp 	\
+            guids.cpp 		\
+            comkrnl.cpp		\
+            wave.cpp		\
+            topology.cpp	\
+            adapter.cpp		\
+            property.cpp	\
+            wavestream.cpp	\
+            hal.cpp			\
+            dsp.cpp			\
+            hwbuffer.cpp	\
+            emu1010b_netlist.cpp	\
+            voices.cpp		\
+            dsp.cpp			\
+            irq.cpp			\
+            audiobuffer.cpp \
+            util.cpp
+

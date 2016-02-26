@@ -1,0 +1,72 @@
+/* 1010 PCI/PCIe Audio Driver
+   Copyright (c) Eugene Gavrilov, 2002-2016
+
+   * This program is free software; you can redistribute it and/or modify
+   * it under the terms of the GNU General Public License as published by
+   * the Free Software Foundation; either version 2 of the License, or
+   * (at your option) any later version.
+   * 
+   * This program is distributed in the hope that it will be useful,
+   * but WITHOUT ANY WARRANTY; without even the implied warranty of
+   * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   * GNU General Public License for more details.
+   *
+   * You should have received a copy of the GNU General Public License
+   * along with this program; if not, write to the Free Software
+   * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
+*/
+
+#define RC_COPYRIGHT_STR     "Copyright (c) Eugene Gavrilov, 2005-2016"
+#define RC_COPYRIGHT         Copyright (c) Eugene Gavrilov., 2005-2016
+#define RC_COMPANY_NAME      "Eugene Gavrilov"
+#define RC_DRIVER_NAME       "1010 PCI/PCIe Audio Driver"
+
+#define RC_DRIVER_VERSION_STR         "6.00.00.3530"
+#define RC_DRIVER_VERSION_INF         6.00.00.3530
+#define RC_DRIVER_VERSION             6,00,00,3530
+#define RC_ASIO_VERSION               3530
+#define RC_DRIVER_REVISION            "0.0.1"
+#define RC_DRIVER_DATE_STR            "02/25/2016"
+
+// file names
+#define RC_SYS_FNAME         "1010pci.sys"
+
+#define APSTUDIO_READONLY_SYMBOLS
+
+#include <winres.h>
+
+VS_VERSION_INFO VERSIONINFO
+    FILEVERSION    RC_DRIVER_VERSION
+    PRODUCTVERSION RC_DRIVER_VERSION
+    FILEFLAGSMASK  VS_FFI_FILEFLAGSMASK
+    #if DBG || defined(_DEBUG)
+        FILEFLAGS      VS_FF_DEBUG
+    #else
+        FILEFLAGS      0x0L
+    #endif
+    FILEOS         VOS_NT_WINDOWS32
+    FILETYPE       VFT_DRV
+    FILESUBTYPE    VFT2_DRV_SYSTEM
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"   /* LANG_ENGLISH/SUBLANG_ENGLISH_US, Unicode CP */
+        BEGIN
+            VALUE "CompanyName",     RC_COMPANY_NAME
+            VALUE "FileDescription", "Kernel-level WDM Audio driver"
+            VALUE "FileVersion",     RC_DRIVER_VERSION_STR
+            VALUE "InternalName",    RC_SYS_FNAME
+            VALUE "LegalCopyright",  RC_COPYRIGHT_STR
+            VALUE "OriginalFilename",RC_SYS_FNAME
+            VALUE "ProductName",     RC_DRIVER_NAME
+            VALUE "ProductVersion",  RC_DRIVER_VERSION_STR
+            VALUE "Comments",        "ASIO Interface Technology by Steinberg Soft- und Hardware GmbH\0"
+        END
+
+    END
+
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x0409, 0x04B0
+    END
+END
